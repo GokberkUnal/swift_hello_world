@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showDetails = false
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack(alignment: .leading) {
+            Button("Hello") {
+                showDetails.toggle()
+            }.padding()
+            .background(Color(red: 0, green: 0, blue: 0.5))
+            .clipShape(Capsule())
+
+            if showDetails {
+                Text("Hello World!")
+                    .font(.largeTitle)
+            }
+        }
     }
 }
 
@@ -19,3 +31,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
